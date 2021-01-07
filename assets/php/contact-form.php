@@ -1,16 +1,20 @@
 <?php
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
-    $to = 'forward@yunsuhan.com';
-    $subject = $_POST['subject'];
 
-    $body = "From: $name <br> E-Mail: $email <br> Message: <br> $message";
+if (isset($_POST['submit'])){
+  $name = $_POST['name'];
+  $subject = $_POST['subject'];
+  $mailFrom = $_POST['email'];
+  $message = $_POST['message'];
 
-    $headers  = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-    $headers .= 'From:' . $email. "\r\n";
-    $headers .= 'Cc:' . $email. "\r\n";
+  $mailTo = "me@yunsuhan.com";
+  $headers = "From: ".$mailFrom;
+  $text = "You have received an email from ".$name.".\n\n".$message;
 
-    mail($to, "New Message from Website: $subject", $body, $headers);
-?>
+
+  mail($mailTo, $subject, $text, $headers);
+  header("Location: contact.php?mailsend");
+}
+
+
+
+ ?>
