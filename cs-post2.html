@@ -94,19 +94,36 @@
                 </div>
 
 
-                <p>&emsp;
+                <p>&emsp;All right, now let's look at what happened after all. The results were promising, and I used the word "promising" because it did not show the best possible result. Let's see why.
                 </p>
 
                 <div class="margin-top-30 margin-bottom-30">
-                    <img src="assets/images/cs-post1-images/CNN-diagram.jpg" alt="system diagram">
+                    <img src="assets/images/cs-post2-images/table1.JPG" alt="result table">
                 </div>
 
-                <div class="margin-bottom-30">
-                    <h2>Conclusion</h2>
+                <p>&emsp;The table above is a confusion matrix of the image classification system. As a confusion matrix contains four different numbers (TP/TN/FP/FN), the table also has four numbers, which indicate the accuracy, recall, precision, and F1 score of the entire system.
+                    The following table shows the four indicators based on the training and testing data set.
+                </p>
+
+                <div class="margin-top-30 margin-bottom-30">
+                    <img src="assets/images/cs-post2-images/table2.JPG" alt="result table">
+                </div>
+
+                <p>&emsp;The above table proves that the system successfully classifies drowning people in their class with an accuracy of 92.6% for the testing data set. Also, it is true that the recall is greater than the precision. This means that there is a high possibility that
+                    the model classifies people not in danger as people in danger, but also means that the model successfully detects drowning people.<br>
+                    &emsp;However, because the testing data set is not big enough, and the difference between FP and TN is not that significant, this might not conclude that the model classifies drowning people well enough.
+                </p>
+
+                <div class="margin-bottom-30 margin-top-30">
+                    <h2>Discussion</h2>
                 </div>
 
                 <p>
-
+                    &emsp;In order to improve the performance of the CNN classification system, I need to resolve one of the biggest problems of this entire project: lack of data. Normally, a deep learning-based system requires more than 10,000 images to display a performance that can be
+                    used in real-life situations. I only used 3,000 images of people drowning and swimming, while I think the proper number of the images should be at least 10,000 images for each class. By employing any kind of method, collecting more images is the most important task for
+                    the next step of the project. <br>
+                    &emsp;The next post of this project discusses the use of classic contour detection and active contours that attempt to increase the accuracy of the system. Although the two systems do not run simultaneously, I hope both systems mutually supplement each other's shortcomings.<br>
+                    &emsp;If you want to take a look at the actual code of the CNN system, please visit this Github link to check out the file. It's a Jupyter Notebook file, but you would be able to read it right in Github.
                 </p>
 
             </div>
