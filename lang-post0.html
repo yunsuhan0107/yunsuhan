@@ -94,10 +94,10 @@
 <div class="section-xl bg-image parallax" data-bg-src="">
     <div class="bg-black-06">
         <div class="container text-center">
-            <h1 class="font-weight-light">Drowning Detection with CNN - Part 1</h1>
+            <h1 class="font-weight-light">Overall Plan for Foreign Languages Studies</h1>
             <ul class="list-inline-dash">
-                <li>January 11, 2021</li>
-                <li><a href="cs.html">AI/ML/DL</a></li>
+                <li>February 8, 2021</li>
+                <li><a href="lang.html">Foreign Languages</a></li>
                 <li><a href="aboutme.html">By Yunsu Han</a></li>
             </ul>
         </div><!-- end container -->
@@ -114,105 +114,7 @@
                     <h2>Introduction</h2>
                 </div>
 
-                <p>&emsp;As I was searching for a good topic for my new project, I came across a surprising fact that there are a lot of cases of casualty due to water accidents in summer vacation seasons. Especially, children swim around places where adults cannot immediately reach out,
-                    and unfortunate accidents occur. The following graph shows the number of water accidents that happen in South Korea
-                    While it is difficult to point out a single reason of water accidents, one of the biggest reasons for water
-                    accidents is the inattention of lifeguards -- not only their ability but also their lack of number. Therefore, a deep learning-based drowning detection system can help the lifeguards to instantly be aware of the occurrence of the accidents and respond to them.
-                    One of the most important things of creating an AI system is to record the required data. Since it is extremely difficult to gather around data of people drowning in water, to search for these types of data is the most significant task of this entire project.
-                    I used several kinds of methods to gather around these data: Internet searching, web crawling, etc.
-                </p>
 
-                <div class="margin-bottom-30 margin-top-30">
-                    <img src="assets/images/cs-post1-images/water-accidents-graph.jpg" alt="water accident graph">
-                </div>
-
-                <p>
-                    &emsp;The above graph displays the number of water accidents that happened in Haeundae Beach in Busan, Korea. While the numbers do not seem to be immense, the impact of creating an AI system would prevent almost all these accidents by merely realizing them happening.
-                    There are several methods that detect drowning: an automated drowning detection device that uses microcontrollers and pressure sensors, a RF device detects if the swimmer with the device on his or her wrist stays inside the water for too much time, or a technique
-                    called NEPTUNE, which is an early prediction model with specific equations that calculate the time that a swimmer is inside the water. These methods are valuable and could be employed in real life situations, but they also lack accuracy and have alarm delays.
-                    <br>&emsp;Therefore, this post discusses several systems that detect drowning with some new methods and compares their advantages and shortcomings in order to find out the probable method to be employed in real-life situations. In current stage, I am also considering employing
-                    other deep learning methods such as generative adversarial networks (GANs) and reinforcement learning methods in order to create new images. But right now, this post focuses on the things that I have done so far using CNN and classic contour detection.
-                </p>
-
-                <div class="margin-bottom-30 margin-top-30">
-                    <h2>Background</h2>
-                </div>
-
-                <h4>Deep Learning</h4>
-
-                <div class="margin-bottom-30">
-                    <img src="assets/images/cs-post1-images/DNN.jpg" alt="deep neural network">
-                </div>
-
-                <p>
-                    &emsp;Deep Learning is one of the machine learning technologies that has greatly improved the original artificial neural network of the 1950s and has made significant contributions to image and video detection since the 2010s. Artificial neural networks go through a process of
-                    interpreting images similar to that of humans. A perceptron, which acts as a neuron within the human nervous system, has a single layer and creates a structure in which those layers are connected to each other. This is called a multi-perceptron. A multi-perceptron is a type of
-                    neural network consisting of a multi-layered structure with an input layer, an output layer, and hidden layers in between. The above image shows the structure of layers that consist of multi-perceptrons. In addition, this neural network is also called the Deep Neural Network,
-                    also known as DNN, in the sense that it is deeper than the original neural network since there exists a hidden layer between the input and output layers.
-                </p>
-
-                <div class="margin-top-30">
-                    <h4>Convolutional Neural Network</h4>
-                </div>
-
-
-                <div class="margin-bottom-30">
-                    <img src="assets/images/cs-post1-images/CNN.jpg" alt="convolutional neural network">
-                </div>
-
-                <p>
-                    &emsp;While DNN only converts each pixel’s brightness into numerical values to grasp the features of the image data, a convolutional layer also keeps track of the relationships of the numerical values of the image data. The network has a small filter, multiplies the weight value on
-                    the overlapped portion of the data, and applies activation functions. In the case of the above image, a 3x3 filter multiplies the weighted value to each node and adds them up. Later on, the system calculates the weighted value with an applied activation function and hands
-                    the result to the next filter. The filter slightly moves until it covers the whole area of the data. This process is called Convolutional Neural Network, also known as CNN.
-                    <br>&emsp;CNN trains by feeding some data and the correct output that the programmer wants the network to show as a result after processing the data. After showing the result, the program compares the output and the correct answer and then uses gradient descent to update
-                    the weights and filter values to make the result closer to the desired answer. As a result, the program performs better when it is fed more data since the program is able to train more times with new data. In the end, the system needs to be generalized so that it could be
-                    employed in images that it has never seen before.
-                </p>
-
-                <div class="margin-bottom-30 margin-top-30">
-                    <h2>Data</h2>
-                </div>
-
-                <p>&emsp;In order to feed some images into the CNN system, I need a number of images of both people drowning and swimming in the water, which are used as training and testing data sets for the system.
-                    Therefore, I took pictures at beaches to collect images that show people naturally swimming and drowning. However, it was difficult to take pictures carelessly, and so I took pictures and collected a variety of images by searching on the Internet as well.
-                    I went to websites that contained downloadable images such as Google Images, Adobe Stock, Getty Images, and Deposit Images, and selected and downloaded images and videos that are realistic, not having watermarks on them.
-                    Video files are converted to png files once every 30 frames, using a video filter of a program called VLC. The following table shows the amount of image data:</p>
-
-                <div class="margin-top-30 margin-bottom-30">
-                    <img src="assets/images/cs-post1-images/data-table.JPG" alt="data table">
-                </div>
-
-                <p>
-                    &emsp;Here, I cropped the images into 32x32. It is true that the bigger the image data are, the easier it is to capture features of people in danger and those not in danger. But, considering that the images are 3-channel, which means they are colored,
-                    training the model using images with high resolution and quality requires a lot of time and hardware with extensive specifications. Therefore, I resized the image into 32x32, which is the size equal to CIFAR-10,
-                    a data set that CNN beginners study with. Since CIFAR-10 proves that even small images can distinguish objects, a small dimension can also classify people drowning and swimming. The two following images are examples of the data set (drowning & swimming).
-                </p>
-
-                <div class="margin-top-30 margin-bottom-30">
-                    <img src="assets/images/cs-post1-images/images-examples.JPG" alt="examples">
-                </div>
-
-                <div class="margin-bottom-30 margin-top-30">
-                    <h2>System</h2>
-                </div>
-
-                <p>
-                    &emsp;CNN has the advantage that the model's accuracy does not drop even though the system increases the number of hidden layers. Additionally, since CNN extracts features by putting an entire image as input data, whereas traditional DNN does so from an image
-                    by pixel by pixel and passes the vector of feature values to the network, CNN is the best deep learning algorithm for this experiment.<br>
-                    &emsp;CNN used in this paper consists of Convolutional Pooling Layers, which extract the characteristics of the image data, and Fully Connected Layers, which classify the data using the information received from the Convolutional Pooling Layers.
-                    I apply Convolutional Pooling Layers, which consist of two separate layers, a Convolutional Layer and a Pooling Layer, to the initial 32x32x3 data with two 3x3 filters based on Max Pooling. Then, the Fully Connected Layers classify the image data into different
-                    classes by utilizing the data passed from the prior layers. Figure 6 is an overall diagram of the CNN model employed in this paper.
-                </p>
-
-                <div class="margin-top-30 margin-bottom-30">
-                    <img src="assets/images/cs-post1-images/CNN-diagram.jpg" alt="system diagram">
-                </div>
-
-                <p>
-                    &emsp;Keras’s ImageDataGenerator class performs data augmentation, which helps the program to increase the generalizability of the model by creating new training samples from the original images. The class translates, rotates, changes in scale, shears, and flips the original images
-                    and allows the program to find data points that are not included in the original training set. In addition, I use the EarlyStopping function and look at the test dataset's loss value to prevent overfitting, which is a modeling error that the model learns too much about
-                    the training datasets that it fails to generalize to other data, while training the model. If the loss value does not decrease, the function automatically terminates the training process. In the compiling process, the system uses adam as its optimizer, and runs over 500 epochs.
-                </p>
 
             </div>
         </div><!-- end row -->
@@ -228,6 +130,8 @@
                 <img class="img-circle-lg margin-bottom-20" src="assets/images/profile-square.jpg">
                 <h5 class="font-weight-normal">Yunsu Han</h5>
                 <p>I like to learn new things in artificial intelligence and data science. I also enjoy learning and speaking foreign languages. Creating music and writing lyrics are also one of my favorite things to do in free time.</p>
+
+                <p></p>
                 <!-- Social links -->
                 <ul class="list-inline margin-top-20">
                     <li><a href="https://www.facebook.com/louisyunsuhan/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
