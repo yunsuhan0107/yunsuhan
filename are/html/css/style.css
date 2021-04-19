@@ -4560,7 +4560,7 @@ footer .instafeed-grid.gutter-double-extra-large { margin-left: -20px; margin-ri
 .home-startup .ares:hover { background: rgba(0,0,0,0.9); }
 .home-startup .rs-btn:hover div,.home-startup .rs-btn:hover .fa-play { transition: 0.3s ease-in-out !important; }
 .home-startup .rs-btn:hover div { background: #fff !important; }
-.home-startup .rs-btn:hover .fa-play { color: #00B057 !important; }
+.home-startup .rs-btn:hover .fa-play { color: #76aff5 !important; }
 .home-startup .tp-mask-wrap { display: inline !important; }
 .home-startup .tp-bullet .tp-bullet-image, .home-startup .tp-bullet .tp-bullet-title { display: none !important; }
 .footer-startup.footer-light a:hover { color: #27ae60;}
